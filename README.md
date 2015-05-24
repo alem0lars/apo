@@ -1,6 +1,11 @@
-# `apo`: alem0lars' portage overlay
+# `apo`: alem0lars portage overlay
 
-Custom portage overlay by alem0lars
+Custom portage overlay by [alem0lars](https://molarialessandro.info).
+
+It mainly contains:
+
+1. `ebuild`s for custom software (made by alem0lars or his crew).
+2. third-party software not available in other overlays or in the official repository.
 
 ## Usage
 
