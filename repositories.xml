@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name><![CDATA[apo]]></name>
+    <description lang="en"><![CDATA[alem0lars portage overlay]]></description>
+    <homepage>http://github.com/alem0lars/apo</homepage>
+    <owner type="person">
+      <email>molari.alessandro@gmail.com</email>
+      <name><![CDATA[Alessandro Molari]]></name>
+    </owner>
+    <source type="git">git://github.com/alem0lars/apo.git</source>
+    <feed>http://github.com/alem0lars/apo/commits/master.atom</feed>
+  </repo>
+</repositories>
