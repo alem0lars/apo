@@ -4,9 +4,9 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
-inherit distutils-r1
+inherit distutils-r1 eutils
 
 DESCRIPTION="Command line twitter client"
 HOMEPAGE="https://github.com/alejandrogomez/turses"
@@ -17,21 +17,22 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-RDEPEND="
+DEPEND="
 	dev-python/oauth2[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	dev-python/tweepy[${PYTHON_USEDEP}]
+	>dev-python/tweepy-2.2[${PYTHON_USEDEP}]
+	<dev-python/tweepy-3[${PYTHON_USEDEP}]
 	dev-python/urwid[${PYTHON_USEDEP}]
-"
-DEPEND="${RDEPEND}
 	test? (
 		dev-python/mock[${PYTHON_USEDEP}]
-		dev-python/nose[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
+		dev-python/coverage[${PYTHON_USEDEP}]
+		dev-python/tox[${PYTHON_USEDEP}]
 	)
 "
 
 DOCS=( AUTHORS HISTORY.rst README.rst )
 
 python_test() {
-	nosetests || die "Tests fail with ${EPYTHON}"
+	esetup.py test
 }
