@@ -38,7 +38,7 @@ DEPEND="
 python_compile_all() {
 	if use doc; then
 		emake -C docs html
-		dodoc -r docs/html
+		dodoc -r docs/_build/html
 	fi
 	
 	emake -C docs man
