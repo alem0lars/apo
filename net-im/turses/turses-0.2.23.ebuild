@@ -36,7 +36,9 @@ DEPEND="
 "
 
 python_compile_all() {
-	use doc && emake -C docs html
+	if use doc; then
+		emake -C docs html info man # man always ??
+	fi
 }
 
 python_test() {
