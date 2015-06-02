@@ -42,7 +42,7 @@ python_compile_all() {
 	fi
 	
 	emake -C docs man
-	doman -r docs/_build/man
+	doman docs/_build/man/*
 }
 
 python_test() {
