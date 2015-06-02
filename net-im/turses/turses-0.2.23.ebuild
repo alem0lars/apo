@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit distutils-r1 eutils
+inherit distutils-r1
 
 DESCRIPTION="Command line twitter client"
 HOMEPAGE="https://github.com/alejandrogomez/turses"
@@ -15,14 +15,18 @@ SRC_URI="https://github.com/alejandrogomez/${PN}/archive/v${PV}.tar.gz -> ${P}.t
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
+IUSE="doc test"
 
 DEPEND="
+	dev-python/httplib2[${PYTHON_USEDEP}]
 	dev-python/oauth2[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/urwid[${PYTHON_USEDEP}]
 	>dev-python/tweepy-2.2[${PYTHON_USEDEP}]
 	<dev-python/tweepy-3[${PYTHON_USEDEP}]
-	dev-python/urwid[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	doc? (
+		dev-python/sphinx[${PYTHON_USEDEP}]
+	)
 	test? (
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
@@ -31,8 +35,10 @@ DEPEND="
 	)
 "
 
-DOCS=( AUTHORS HISTORY.rst README.rst )
+python_compile_all() {
+	use doc && emake -C docs html
+}
 
 python_test() {
-	esetup.py test
+	py.test tests || die "Tests fail with ${EPYTHON}"
 }
