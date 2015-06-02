@@ -42,7 +42,7 @@ python_compile_all() {
 	fi
 	
 	emake -C docs man
-	doman docs/_build/man/*
+	doman docs/_build/man/turses.1
 }
 
 python_test() {
