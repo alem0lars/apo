@@ -38,11 +38,11 @@ DEPEND="
 python_compile_all() {
 	if use doc; then
 		emake -C docs html
-		dodoc -r docs/_build/html
+		dodoc -r docs/_build/html || die
 	fi
 	
 	emake -C docs man
-	doman docs/_build/man/turses.1
+	doman docs/_build/man/turses.1 || die
 }
 
 python_test() {
