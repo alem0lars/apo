@@ -24,14 +24,6 @@ DEPEND="app-arch/tar
 RDEPEND=">=virtual/jdk-1.6
 	>=dev-java/ant-core-1.6.5
 	|| ( dev-java/swt:3.7[cairo] dev-java/swt:3.6[cairo] )
-	|| (
-		(
-			>=x11-libs/gtk+-2.24.23-r2:2[abi_x86_32(-)]
-		)
-		amd64? (
-			app-emulation/emul-linux-x86-gtklibs[-abi_x86_32(-)]
-		)
-	)
 "
 
 ANDROID_SDK_DIR="/opt/${PN}"
