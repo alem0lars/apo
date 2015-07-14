@@ -33,5 +33,5 @@ src_install() {
 	# Make the launcher (file `run.sh`) executable.
 	fperms 755 "${launcher}"
 
-	make_wrapper ${P} "${launcher}"
+	make_wrapper ${PN} "${launcher}"
 }
