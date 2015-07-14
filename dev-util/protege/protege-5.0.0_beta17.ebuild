@@ -7,6 +7,7 @@ EAPI=5
 inherit eutils
 
 _PV=$(echo "${PV}" | sed s/\_/-/g | sed s/beta/beta-/g)
+S="${WORKDIR}/Protege-${_PV}"
 
 DESCRIPTION="A free, open-source ontology editor and framework for building intelligent systems"
 HOMEPAGE="http://protege.stanford.edu/"
@@ -19,6 +20,7 @@ SLOT="0"
 
 DEPEND=">=virtual/jdk-1.7"
 RDEPEND="${DEPEND}"
+
 
 src_install() {
 	local dir="/opt/${PN}"
