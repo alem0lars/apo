@@ -6,12 +6,13 @@
 EAPI=5
 inherit eutils
 
-_PV=$(echo "${PV}" | sed s/\_/-/g | sed s/beta/beta-/g)
-S="${WORKDIR}/Protege-${_PV}"
+MY_PN="Protege"
+MY_PV=${PV/_beta/-beta-}
+S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 DESCRIPTION="A free, open-source ontology editor and framework for building intelligent systems"
 HOMEPAGE="http://protege.stanford.edu/"
-SRC_URI="https://github.com/protegeproject/${PN}/releases/download/${PN}-parent-${_PV}/${PN}-${_PV}-platform-independent.zip"
+SRC_URI="https://github.com/protegeproject/${PN}/releases/download/${PN}-parent-${MY_PV}/${PN}-${MY_PV}-platform-independent.zip"
 LICENSE="BSD"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
