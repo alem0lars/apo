@@ -8,6 +8,7 @@ EAPI=5
 inherit eutils
 
 MY_PN="heroku"
+S="${WORKDIR}/${PN}"
 
 DESCRIPTION="Client tools for heroku"
 HOMEPAGE="http://heroku.com"
@@ -25,5 +26,5 @@ src_install() {
 	local dir="/opt/${PN}"
 	insinto "${dir}"
 	doins -r *
-	make_wrapper ${MY_PN} ${dir}/bin/${PN}.sh
+	make_wrapper ${MY_PN} ${dir}/bin/${MY_PN}
 }
