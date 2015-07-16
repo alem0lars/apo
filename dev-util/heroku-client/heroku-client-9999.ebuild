@@ -24,7 +24,12 @@ RDEPEND="dev-lang/ruby"
 
 src_install() {
 	local dir="/opt/${PN}"
+	local launcher="${dir}/bin/${MY_PN}"
+
 	insinto "${dir}"
+
 	doins -r *
-	make_wrapper ${MY_PN} ${dir}/bin/${MY_PN}
+
+	fperms 755 "${launcher}"
+	make_wrapper ${MY_PN} ${launcher}
 }
