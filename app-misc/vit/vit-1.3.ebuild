@@ -4,10 +4,10 @@
 
 EAPI=5
 
+inherit eutils git-2
+
 DESCRIPTION="A fullscreen terminal UI for Taskwarrior with Vi keybindings"
 HOMEPAGE="http://tasktools.org/projects/vit.html"
-
-inherit eutils git-2
 
 LICENSE="GPL"
 SLOT="0"
