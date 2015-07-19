@@ -4,8 +4,8 @@
 
 EAPI=5
 
-DESCRIPTION="vit, a full screen terminal interface for Taskwarrior with Vi key bindings"
-HOMEPAGE="http://taskwarrior.org/projects/1/wiki/Vit"
+DESCRIPTION="A fullscreen terminal UI for Taskwarrior with Vi keybindings"
+HOMEPAGE="http://tasktools.org/projects/vit.html"
 
 inherit eutils git-2
 
