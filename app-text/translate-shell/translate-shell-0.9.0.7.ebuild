@@ -26,8 +26,13 @@ DEPEND="
 		)
 	)
 	fribidi? ( dev-libs/fribidi )
-	pager? ( sys-apps/less sys-apps/more sys-apps/most )
+	pager? ( sys-apps/less sys-apps/most )
 	readline? ( app-misc/rlwrap )
 	ssl? ( net-misc/curl[ssl] )
 "
 RDEPEND="${DEPEND}"
+
+src_install() {
+	emake DESTDIR="${D}" install
+	doman "man/turses.1"
+}
