@@ -33,6 +33,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_install() {
-	emake PREFIX="/usr" install
+	emake PREFIX="${ED}/usr" install
 	doman "man/turses.1"
 }
