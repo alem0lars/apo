@@ -32,7 +32,13 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+
+src_compile () {
+	emake
+	default
+}
+
 src_install() {
-	emake PREFIX="${ED}/usr" install
+	dobin build/trans
 	doman "man/turses.1"
 }
