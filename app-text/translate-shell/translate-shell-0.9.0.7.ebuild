@@ -40,5 +40,5 @@ src_compile () {
 
 src_install() {
 	dobin build/trans
-	doman "man/turses.1"
+	doman "man/trans.1"
 }
