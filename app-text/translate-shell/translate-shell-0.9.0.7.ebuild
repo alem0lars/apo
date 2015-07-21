@@ -26,7 +26,7 @@ DEPEND="
 		)
 	)
 	fribidi? ( dev-libs/fribidi )
-	pager? ( sys-apps/less sys-apps/most )
+	pager? ( || ( sys-apps/less sys-apps/most ) )
 	readline? ( app-misc/rlwrap )
 	ssl? ( net-misc/curl[ssl] )
 "
