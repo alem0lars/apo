@@ -23,16 +23,16 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
 
-src_unpack() {
-	local icon_path="themes/standard/JDownloader/org/jdownloader/images/updaterIcon100.png"
-	cp "${DISTDIR}/${A}" . || die
-	jar xf ${A} ${icon_path} || die
-}
-
 src_install() {
-	java-pkg_newjar ${MY_PN}.jar
-	java-pkg_dolauncher ${PN} --jar ${MY_PN}.jar
+	local icon_path="themes/standard/JDownloader/org/jdownloader/images/updaterIcon100.png"
+	local jar_path=${MY_PN}.jar
+
+	jar xf ${jar_path} ${icon_path} || die
 	newicon updaterIcon100.png ${MY_PN}.png
+
+	java-pkg_newjar ${jar_path}
+	java-pkg_dolauncher ${PN} --jar ${jar_path}
+
 	make_desktop_entry ${PN} ${MY_PN} ${MY_PN}
 }
 
