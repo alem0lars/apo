@@ -25,7 +25,7 @@ S="${WORKDIR}"
 
 src_install() {
 	local icon_path="themes/standard/JDownloader/org/jdownloader/images/updaterIcon100.png"
-	local jar_path=${MY_PN}.jar
+	local jar_path=${S}/${MY_PN}.jar
 
 	jar xf ${jar_path} ${icon_path} || die
 	newicon updaterIcon100.png ${MY_PN}.png
