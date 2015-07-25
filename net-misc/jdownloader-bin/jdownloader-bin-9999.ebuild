@@ -7,7 +7,6 @@ EAPI="5"
 inherit eutils java-pkg-2 fdo-mime
 
 MY_PN=${PN/-bin/}
-MY_PN=${MY_PN/jd/JD}
 
 DESCRIPTION="JDownloader is a Java download tool."
 HOMEPAGE="http://www.jdownloader.org/"
@@ -23,8 +22,8 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
 
-icon_path="themes/standard/JDownloader/org/jdownloader/images/updaterIcon100.png"
-jar_path=${MY_PN}.jar
+icon_path="themes/standard/org/jdownloader/images/updaterIcon100.png"
+jar_path=${MY_PN/jd/JD}.jar
 
 src_unpack() {
 	cp -v "${DISTDIR}/${A}" . || die
@@ -33,9 +32,9 @@ src_unpack() {
 
 src_install() {
 	java-pkg_newjar ${jar_path}
-	java-pkg_dolauncher ${PN} --jar ${jar_path}
+	java-pkg_dolauncher ${MY_PN} --jar ${jar_path}
 	newicon ${icon_path} ${MY_PN}.png
-	make_desktop_entry ${PN} ${MY_PN} ${MY_PN}
+	make_desktop_entry ${MY_PN} ${MY_PN} ${MY_PN}
 }
 
 pkg_postinst() {
