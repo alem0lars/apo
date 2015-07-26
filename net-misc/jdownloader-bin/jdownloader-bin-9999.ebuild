@@ -6,11 +6,16 @@ EAPI="5"
 
 inherit eutils java-pkg-2 fdo-mime
 
-MY_PN=${PN/-bin/}
+MY_PN="${PN/-bin/}"
+MY_PN_CAPS="${MY_PN/jd/JD}"
+src_jar="${MY_PN_CAPS}.jar"
+dst_jar="${MY_PN}.jar"
+src_icon="themes/standard/org/${MY_PN}/images/updaterIcon100.png"
+dst_icon="${MY_PN}-icon.png"
 
-DESCRIPTION="JDownloader is a Java download tool."
-HOMEPAGE="http://www.jdownloader.org/"
-SRC_URI="http://installer.jdownloader.org/JDownloader.jar"
+DESCRIPTION="${MY_PN_CAPS} is a Java download tool."
+HOMEPAGE="http://www.${MY_PN}.org"
+SRC_URI="http://installer.${MY_PN}.org/${src_jar}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -22,19 +27,18 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
 
-icon_path="themes/standard/org/jdownloader/images/updaterIcon100.png"
-jar_path=${MY_PN/jd/JD}.jar
-
 src_unpack() {
+	# Copy the downloaded jar.
 	cp -v "${DISTDIR}/${A}" . || die
-	jar xf ${jar_path} ${icon_path} || die
+	# Extract the image from the jar. It will be used later as icon.
+	jar xf ${src_jar} ${src_icon} || die
 }
 
 src_install() {
-	java-pkg_newjar ${jar_path}
-	java-pkg_dolauncher ${MY_PN} --jar ${jar_path}
-	newicon ${icon_path} ${MY_PN}.png
-	make_desktop_entry ${MY_PN} ${MY_PN} ${MY_PN}
+	java-pkg_newjar ${src_jar} ${dst_jar}
+	java-pkg_dolauncher ${MY_PN} --jar ${dst_jar}
+	newicon ${src_icon} ${dst_icon}
+	make_desktop_entry ${MY_PN} ${MY_PN_CAPS} ${dst_icon}
 }
 
 pkg_postinst() {
