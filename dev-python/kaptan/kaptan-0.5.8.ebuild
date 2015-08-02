@@ -19,7 +19,7 @@ IUSE="test"
 
 DEPEND="
 	>=app-misc/tmux-1.8
-	>=dev-python/PyYAML-3.10[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-3.10[${PYTHON_USEDEP}]
 	test? ( >=dev-python/pytest-2.3.5[${PYTHON_USEDEP}] )
 "
 
