@@ -21,22 +21,22 @@ IUSE="doc test"
 DEPEND="
 	dev-python/sphinx[${PYTHON_USEDEP}]
 	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
-	doc? (
-		dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
-	)
 "
+#	doc? (
+#		dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+#	)
 
-python_compile_all() {
-	use doc && emake -C docs html
-	emake -C docs man
-}
+#python_compile_all() {
+#	use doc && emake -C docs html
+#	emake -C docs man
+#}
 
 python_test() {
 	py.test || die "Tests fail with ${EPYTHON}"
 }
 
-python_install_all() {
-	doman "docs/_build/man/${PN}.1"
-	use doc && local HTML_DOCS=( docs/_build/html/. )
-	distutils-r1_python_install_all
-}
+#python_install_all() {
+#	doman "docs/_build/man/${PN}.1"
+#	use doc && local HTML_DOCS=( docs/_build/html/. )
+#	distutils-r1_python_install_all
+#}
