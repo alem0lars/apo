@@ -23,6 +23,10 @@ DEPEND="
 	dev-python/argcomplete[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]
 	test? ( dev-python/coverage[${PYTHON_USEDEP}] )
+	doc? (
+		dev-python/sphinx[${PYTHON_USEDEP}]
+		dev-python/sphinx-argparse[${PYTHON_USEDEP}]
+	)
 "
 
 python_compile_all() {
