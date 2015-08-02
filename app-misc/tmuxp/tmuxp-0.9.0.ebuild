@@ -15,7 +15,7 @@ SRC_URI="https://github.com/tony/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc test examples"
+IUSE="doc test examples zsh-completion"
 
 DEPEND="
 	>=app-misc/tmux-1.8[${PYTHON_USEDEP}]
@@ -42,6 +42,13 @@ python_install_all() {
 		insinto /usr/share/doc/${PF}/examples
 		doins -r examples/*
 	fi
+
+    newbashcomp pkg/${PN}.bash "${PN}"
+
+    if use zsh-completion; then
+		insinto /usr/share/zsh/site-functions
+		newins pkg/${PN}.zsh _${PN}
+    fi
 
 	distutils-r1_python_install_all
 }
