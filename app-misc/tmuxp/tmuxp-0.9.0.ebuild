@@ -26,8 +26,8 @@ DEPEND="
 "
 
 python_compile_all() {
-	use doc && emake -C docs html
-	emake -C docs man
+	use doc && emake -C doc html
+	emake -C doc man
 }
 
 python_test() {
@@ -35,8 +35,8 @@ python_test() {
 }
 
 python_install_all() {
-	doman "docs/_build/man/${PN}.1"
-	use doc && local HTML_DOCS=( docs/_build/html/. )
+	doman "doc/_build/man/${PN}.1"
+	use doc && local HTML_DOCS=( doc/_build/html/. )
 
 	if use examples; then
 		insinto /usr/share/doc/${PF}/examples
