@@ -27,6 +27,8 @@ DEPEND="
 		dev-python/sphinx[${PYTHON_USEDEP}]
 		dev-python/sphinx-argparse[${PYTHON_USEDEP}]
 		dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+		=dev-python/docutils-0.12[${PYTHON_USEDEP}]
+		dev-python/reportlab[${PYTHON_USEDEP}]
 	)
 "
 
