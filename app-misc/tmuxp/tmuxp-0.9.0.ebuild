@@ -31,6 +31,7 @@ DEPEND="
 		dev-python/reportlab[${PYTHON_USEDEP}]
 	)
 "
+RDEPEND="${DEPEND}"
 
 python_compile_all() {
 	use doc && emake -C doc html
