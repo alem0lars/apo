@@ -4,15 +4,15 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_{3,4}} )
+PYTHON_COMPAT=( python3_{3,4} )
 
-inherit distutils-r1
+inherit python-single-r1
 
 DESCRIPTION="tmux session manager in python"
 HOMEPAGE="https://github.com/tony/tmuxp"
 SRC_URI="https://github.com/tony/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test examples zsh-completion"
@@ -51,12 +51,12 @@ python_install_all() {
 		doins -r examples/*
 	fi
 
-    newbashcomp pkg/${PN}.bash "${PN}"
+	newbashcomp pkg/${PN}.bash "${PN}"
 
-    if use zsh-completion; then
+	if use zsh-completion; then
 		insinto /usr/share/zsh/site-functions
 		newins pkg/${PN}.zsh _${PN}
-    fi
+	fi
 
 	distutils-r1_python_install_all
 }
