@@ -5,8 +5,9 @@
 EAPI=5
 
 PYTHON_COMPAT=( python3_{3,4} )
+DISTUTILS_SINGLE_IMPL=yes
 
-inherit python-single-r1
+inherit distutils-r1
 
 DESCRIPTION="tmux session manager in python"
 HOMEPAGE="https://github.com/tony/tmuxp"
