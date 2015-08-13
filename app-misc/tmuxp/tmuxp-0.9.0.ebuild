@@ -16,7 +16,7 @@ SRC_URI="https://github.com/tony/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc test examples zsh-completion"
+IUSE="test zsh-completion" # doc examples
 
 DEPEND="
 	>=app-misc/tmux-1.8
@@ -24,38 +24,38 @@ DEPEND="
 	dev-python/argcomplete[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]
 	test? ( dev-python/coverage[${PYTHON_USEDEP}] )
-	doc? (
-		dev-python/sphinx[${PYTHON_USEDEP}]
-		dev-python/sphinx-argparse[${PYTHON_USEDEP}]
-		dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
-		=dev-python/docutils-0.12[${PYTHON_USEDEP}]
-		dev-python/reportlab[${PYTHON_USEDEP}]
-	)
 "
+#	doc? (
+#		dev-python/sphinx[${PYTHON_USEDEP}]
+#		dev-python/sphinx-argparse[${PYTHON_USEDEP}]
+#		dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+#		=dev-python/docutils-0.12[${PYTHON_USEDEP}]
+#		dev-python/reportlab[${PYTHON_USEDEP}]
+#	)
 RDEPEND="${DEPEND}"
 
-python_prepare_all() {
-	epatch "${FILESDIR}/aafig-py3.patch"
-	find doc/_ext -name 'aafig.py' -type f -exec sed -i.orig 's/\t/        /g' {} +
-}
+#python_prepare_all() {
+#	epatch "${FILESDIR}/aafig-py3.patch"
+#	find doc/_ext -name 'aafig.py' -type f -exec sed -i.orig 's/\t/        /g' {} +
+#}
 
-python_compile_all() {
-	use doc && emake -C doc html
-	emake -C doc man
-}
+#python_compile_all() {
+#	use doc && emake -C doc html
+#	emake -C doc man
+#}
 
 python_test() {
 	coverage run --source=${PN} setup.py test || die "Tests fail with ${EPYTHON}"
 }
 
 python_install_all() {
-	doman "doc/_build/man/${PN}.1"
-	use doc && local HTML_DOCS=( doc/_build/html/. )
-
-	if use examples; then
-		insinto /usr/share/doc/${PF}/examples
-		doins -r examples/*
-	fi
+#	doman "doc/_build/man/${PN}.1"
+#	use doc && local HTML_DOCS=( doc/_build/html/. )
+#
+#	if use examples; then
+#		insinto /usr/share/doc/${PF}/examples
+#		doins -r examples/*
+#	fi
 
 	newbashcomp pkg/${PN}.bash "${PN}"
 
