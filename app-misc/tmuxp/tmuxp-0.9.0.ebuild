@@ -35,6 +35,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 python_prepare_all() {
+	epatch "${FILESDIR}/aafig-py3.patch"
 	find doc/_ext -name 'aafig.py' -type f -exec sed -i.orig 's/\t/        /g' {} +
 }
 
