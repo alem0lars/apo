@@ -34,6 +34,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+python_prepare_all() {
+	find doc/_ext -name 'aafig.py' -type f -exec sed -i.orig 's/\t/    /g' {} +
+}
+
 python_compile_all() {
 	use doc && emake -C doc html
 	emake -C doc man
