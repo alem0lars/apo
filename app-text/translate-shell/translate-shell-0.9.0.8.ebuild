@@ -6,7 +6,7 @@ EAPI=5
 
 DESCRIPTION="Translate Shell (formerly Google Translate CLI) is a command-line
 translator powered by Google Translate."
-HOMEPAGE="http://www.soimort.org/${PN}"
+HOMEPAGE="https://www.soimort.org/translate-shell"
 SRC_URI="https://github.com/soimort/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Unlicense"
