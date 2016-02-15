@@ -30,8 +30,7 @@ RDEPEND="
 	dev-libs/openssl
 	media-libs/libpng
 	net-dns/c-ares
-	dev-libs/crypto++
-	virtual/libstdc++"
+	dev-libs/crypto++"
 
 S="${WORKDIR}"
 
