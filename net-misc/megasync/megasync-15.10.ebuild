@@ -3,36 +3,29 @@
 # $Header: $
 
 EAPI=5
-inherit eutils multilib
+inherit eutils
 
 DESCRIPTION="The official QT-Based mega.co.nz client for sync your MEGA account"
 HOMEPAGE="http://mega.co.nz"
 
-URL_64="https://mega.nz/linux/MEGAsync/xUbuntu_${PV}/amd64/${PN}-xUbuntu_${PV}_amd64.deb"
-URL_32="https://mega.nz/linux/MEGAsync/xUbuntu_${PV}/i386/${PN}-xUbuntu_${PV}_i386.deb"
-
-SRC_URI="
-	amd64? ( ${URL_64} )
-	x86? ( ${URL_32} )
-"
+SRC_URI="https://mega.nz/linux/MEGAsync/xUbuntu_${PV}/amd64/${PN}-xUbuntu_${PV}_amd64.deb"
 
 LICENSE="TheClarifiedArtisticLicense"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RESTRICT="mirror"
 
 DEPEND="
 	sys-devel/binutils
-	app-arch/tar
-"
+	app-arch/tar"
 
 RDEPEND="
 	dev-qt/qtdbus:4
 	dev-libs/openssl
-	 media-libs/libpng
-	 net-dns/c-ares
-	 dev-libs/crypto++"
+	media-libs/libpng
+	net-dns/c-ares
+	dev-libs/crypto++"
 
 S="${WORKDIR}"
 
