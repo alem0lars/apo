@@ -43,4 +43,4 @@ esac
 # Fix for JRE 1.5.
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib
 
-exec "${ECLIPSE_BIN}" -vm $(java-config --java) "$@" "${ECLIPSE_USER_ARGS}" -vmargs ${VM_ARGS} 
+exec "${ECLIPSE_BIN}" -vm $(java-config --java) "$@" "${ECLIPSE_USER_ARGS}" --launcher.GTK_version 2 -vmargs ${VM_ARGS}
