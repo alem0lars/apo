@@ -94,7 +94,6 @@ pkg_setup() {
 
 src_unpack() {
 	use experimental &&
-		#EGIT_BRANCH='web-extensions-dir'
 		EGIT_BRANCH='next'
 	git-r3_src_unpack
 }
