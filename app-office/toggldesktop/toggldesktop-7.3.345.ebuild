@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-libs/poco:=[crypto,data,json,net,sqlite,ssl,xml]
+DEPEND="dev-libs/poco:=[sqlite,ssl]
 	dev-cpp/bugsnag-qt
 	dev-qt/qtcore:5=
 	dev-qt/qtgui:5=
