@@ -95,10 +95,6 @@ src_prepare() {
 	sed -i 's/-ggdb //g' Makefile ||
 		die '-ggdb removal sed failed'
 
-	# specify python version
-	python_fix_shebang bin/uzbl-tabbed ||
-		die 'Fix shebang failed'
-
 	# fix QA of uzbl.desktop
 	if [ ${PV} == 9999 ] && use experimental
 	then
