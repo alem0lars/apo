@@ -25,7 +25,7 @@ HOMEPAGE='http://www.uzbl.org'
 
 LICENSE='LGPL-2.1 MPL-1.1'
 SLOT='0'
-IUSE+=' gtk3 +browser helpers +tabbed vim-syntax'
+IUSE+=' +gtk3 +browser +helpers +tabbed +vim-syntax'
 
 REQUIRED_USE='tabbed? ( browser )'
 
