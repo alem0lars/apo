@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/uzbl/uzbl-9999.ebuild,v 1.29 2014/07/06 12:18:50 swift Exp $
+# $Id$
 
-EAPI='5'
+EAPI=6
 
 PYTHON_COMPAT=( python3_4 )
 
@@ -10,10 +10,10 @@ inherit python-single-r1
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI=${EGIT_REPO_URI:-'https://github.com/uzbl/uzbl.git'}
+	EGIT_REPO_URI=${EGIT_REPO_URI:-'git://github.com/uzbl/uzbl.git'}
 	KEYWORDS=''
 	SRC_URI=''
-	IUSE='experimental '
+	IUSE='experimental'
 else
 	inherit vcs-snapshot
 	KEYWORDS='~amd64 ~x86 ~amd64-linux ~x86-linux'
@@ -25,7 +25,7 @@ HOMEPAGE='http://www.uzbl.org'
 
 LICENSE='LGPL-2.1 MPL-1.1'
 SLOT='0'
-IUSE="${IUSE}+browser helpers +tabbed vim-syntax"
+IUSE+=' gtk3 +browser helpers +tabbed vim-syntax'
 
 REQUIRED_USE='tabbed? ( browser )'
 
@@ -33,8 +33,14 @@ COMMON_DEPEND='
 	dev-libs/glib:2
 	>=dev-libs/icu-4.0.1
 	>=net-libs/libsoup-2.24:2.4
-	net-libs/webkit-gtk:3
-	x11-libs/gtk+:3
+	!gtk3? (
+		>=net-libs/webkit-gtk-1.1.15:2
+		>=x11-libs/gtk+-2.14:2
+	)
+	gtk3? (
+		net-libs/webkit-gtk:3
+		x11-libs/gtk+:3
+	)
 '
 
 DEPEND="
@@ -45,7 +51,6 @@ DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 	x11-misc/xdg-utils
-	dev-python/six[${PYTHON_USEDEP}]
 	browser? (
 		x11-misc/xclip
 	)
@@ -63,7 +68,6 @@ RDEPEND="
 	)
 	vim-syntax? ( || ( app-editors/vim app-editors/gvim ) )
 "
-# TODO document what requires the above helpers
 
 PREFIX="${EPREFIX}/usr"
 
@@ -89,16 +93,18 @@ pkg_setup() {
 	fi
 }
 
-src_unpack() {
-	use experimental &&
-		EGIT_BRANCH='next'
-	git-r3_src_unpack
-}
-
 src_prepare() {
 	# remove -ggdb
 	sed -i 's/-ggdb //g' Makefile ||
 		die '-ggdb removal sed failed'
+
+	# make gtk3 configurable
+	sed -r 's:^(USE_GTK3) = (.*):\1?=\2:' -i Makefile ||
+		die 'Makefile sed for gtk3 failed'
+
+	# specify python version
+	python_fix_shebang bin/uzbl-tabbed ||
+		die 'Fix shebang failed'
 
 	# fix sandbox
 	if [ ${PV} == 9999 ] && ! use experimental
@@ -106,6 +112,24 @@ src_prepare() {
 		sed -i 's/prefix=$(PREFIX)/prefix=$(DESTDIR)\/$(PREFIX)/' Makefile ||
 			die 'Makefile sed for sandbox failed'
 	fi
+
+	# fix QA of uzbl.desktop
+	if [ ${PV} == 9999 ] && use experimental
+	then
+		sed -i 's/Categories=Application;Network;/Categories=Network;/'	\
+			uzbl.desktop.in || die 'QA compliance of uzbl.desktop.in failed'
+	fi
+}
+
+src_unpack() {
+	use experimental &&
+		EGIT_BRANCH='next'
+	git-r3_src_unpack
+}
+
+src_compile() {
+	[[ ${PV} == 9999 ]] && gtk_var='ENABLE_GTK3' || gtk_var='USE_GTK3'
+	emake PREFIX="${PREFIX}" ENABLE_WEBKIT2=yes ${gtk_var}=$(use gtk3 && echo 1 || echo 0)
 }
 
 src_install() {
@@ -114,7 +138,8 @@ src_install() {
 	use browser && use tabbed && targets="${targets} install-uzbl-tabbed"
 
 	# -j1 : upstream bug #351
-	emake -j1 DESTDIR="${D}" PREFIX="${PREFIX}" DOCDIR="${ED}/usr/share/doc/${PF}" ${targets}
+	emake -j1 DESTDIR="${D}" ENABLE_WEBKIT2=yes PREFIX="${PREFIX}"	\
+		DOCDIR="${ED}/usr/share/doc/${PF}" ${targets}
 
 	if use vim-syntax; then
 		insinto /usr/share/vim/vimfiles/ftdetect
