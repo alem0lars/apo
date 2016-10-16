@@ -45,6 +45,7 @@ DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 	x11-misc/xdg-utils
+	dev-python/six[${PYTHON_USEDEP}]
 	browser? (
 		x11-misc/xclip
 	)
