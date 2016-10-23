@@ -3,7 +3,7 @@
 # $Header: $
 
 
-EAPI=5
+EAPI=6
 inherit eutils
 
 MY_PN="Protege"
@@ -12,7 +12,7 @@ S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 DESCRIPTION="A free, open-source ontology editor and framework for building intelligent systems"
 HOMEPAGE="http://protege.stanford.edu/"
-SRC_URI="https://github.com/protegeproject/${PN}/releases/download/${PN}-parent-${MY_PV}/${PN}-${MY_PV}-platform-independent.zip"
+SRC_URI="https://github.com/protegeproject/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 IUSE=""
 KEYWORDS="~amd64 ~x86"

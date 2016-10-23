@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 DESCRIPTION="A purely functional scheme"
 HOMEPAGE="https://github.com/aoh/owl-lisp"

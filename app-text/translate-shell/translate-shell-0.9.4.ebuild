@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI=6
 
 DESCRIPTION="Translate Shell (formerly Google Translate CLI) is a command-line
 translator powered by Google Translate."
@@ -33,7 +33,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 
-src_compile () {
+src_compile() {
 	emake
 	default
 }

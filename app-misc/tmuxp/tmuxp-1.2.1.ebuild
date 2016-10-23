@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python3_{3,4} )
+PYTHON_COMPAT=( python3_{3,4,5} )
 DISTUTILS_SINGLE_IMPL=yes
 
 inherit distutils-r1
@@ -21,6 +21,7 @@ IUSE="test zsh-completion" # doc examples
 DEPEND="
 	>=app-misc/tmux-1.8
 	>=dev-python/kaptan-0.5.7[${PYTHON_USEDEP}]
+	=dev-python/click-6.6[${PYTHON_USEDEP}]
 	dev-python/argcomplete[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]
 	test? ( dev-python/coverage[${PYTHON_USEDEP}] )
