@@ -36,7 +36,9 @@ src_install() {
 
 	# Make the launcher (file `run.sh`) executable.
 	fperms 755 "${launcher}"
-	fperms 755 ${jre_bins}/*
+	for f in ${jre_bins}/*; do
+		fperms 755 "${f}"
+	done
 
 	make_wrapper ${PN} "${launcher}"
 }
