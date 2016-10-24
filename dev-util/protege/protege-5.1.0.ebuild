@@ -27,6 +27,7 @@ RDEPEND="${DEPEND}"
 
 src_install() {
 	local dir="/opt/${PN}"
+	local jre_bins="${dir}/jre/bin"
 	local launcher="${dir}/run.sh"
 
 	# Copy extracted files into `${dir}`.
@@ -35,6 +36,7 @@ src_install() {
 
 	# Make the launcher (file `run.sh`) executable.
 	fperms 755 "${launcher}"
+	fperms 755 ${jre_bins}/*
 
 	make_wrapper ${PN} "${launcher}"
 }
