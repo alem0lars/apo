@@ -6,12 +6,12 @@
 EAPI=6
 inherit eutils
 
-MY_PV=${PV/_beta/-beta-}
-S="${WORKDIR}/${PN}-${MY_PV}"
+MY_PN="Protege"
+MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="A free, open-source ontology editor and framework for building intelligent systems"
 HOMEPAGE="http://protege.stanford.edu/"
-SRC_URI="https://github.com/protegeproject/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/protegeproject/${PN}-distribution/releases/download/v${MY_PV}/${MY_P}-linux.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
