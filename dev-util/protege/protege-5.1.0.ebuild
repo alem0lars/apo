@@ -6,9 +6,8 @@
 EAPI=6
 inherit eutils
 
-MY_PN="Protege"
 MY_PV=${PV/_beta/-beta-}
-S="${WORKDIR}/${MY_PN}-${MY_PV}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 DESCRIPTION="A free, open-source ontology editor and framework for building intelligent systems"
 HOMEPAGE="http://protege.stanford.edu/"
