@@ -19,6 +19,7 @@ RDEPEND="${DEPEND}"
 
 DEPEND="
 	>=net-libs/nodejs-0.10.40
+	net-misc/curl
 "
 RDEPEND="${DEPEND}"
 
@@ -32,10 +33,11 @@ pkg_setup() {
 	enewuser ${ETHERPAD_USER} -1 -1 ${ETHERPAD_DEST} "${ETHERPAD_GROUP}"
 }
 
-src_prepare()
+src_compile()
 {
 	default
-	./bin/installDeps.sh || die
+
+	./bin/installDeps.sh
 }
 
 src_install()
@@ -50,6 +52,4 @@ src_install()
 
 	keepdir "${ETHERPAD_LOG}"
 	fowners "${ETHERPAD_USER}:${ETHERPAD_GROUP}" "${ETHERPAD_LOG}"
-	newconfd "${FILESDIR}/${P}-conf.d" "${PN}"
-	newinitd "${FILESDIR}/${P}-init.d" "${PN}"
 }
