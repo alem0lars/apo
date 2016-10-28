@@ -26,7 +26,7 @@ RDEPEND="${DEPEND}"
 ETHERPAD_DEST="/usr/share/${PN}"
 ETHERPAD_LOG="/var/log/${PN}"
 ETHERPAD_USER="etherpad"
-ETHERPAD_GROUP="daemon"
+ETHERPAD_GROUP="etherpad"
 
 pkg_setup() {
 	enewgroup ${ETHERPAD_GROUP}
@@ -42,15 +42,10 @@ src_compile()
 
 src_install()
 {
-	insinto "/etc/${PN}"
-	doins "settings.json"
-	rm "settings.json"
-	dosym "/etc/${PN}/settings.json" "${ETHERPAD_DEST}/settings.json"
-
 	mkdir -p "${D}${ETHERPAD_DEST}"
 	cp -a . "${D}${ETHERPAD_DEST}"
+	chown -R "${ETHERPAD_USER}:${ETHERPAD_GROUP}" "${D}${ETHERPAD_DEST}"
 
 	keepdir "${ETHERPAD_LOG}"
 	fowners "${ETHERPAD_USER}:${ETHERPAD_GROUP}" "${ETHERPAD_LOG}"
-	fowners "${ETHERPAD_USER}:${ETHERPAD_GROUP}" "${ETHERPAD_DEST}"
 }
