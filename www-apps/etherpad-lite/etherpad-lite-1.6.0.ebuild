@@ -52,4 +52,5 @@ src_install()
 
 	keepdir "${ETHERPAD_LOG}"
 	fowners "${ETHERPAD_USER}:${ETHERPAD_GROUP}" "${ETHERPAD_LOG}"
+	fowners "${ETHERPAD_USER}:${ETHERPAD_GROUP}" "${ETHERPAD_DEST}"
 }
