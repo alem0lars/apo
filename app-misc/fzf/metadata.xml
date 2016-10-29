@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
+	<maintainer type="person">
 		<email>molari.alessandro@gmail.com</email>
 		<name>alem0lars</name>
 	</maintainer>
+	<use>
+		<flag name="bash-keybindings">Add default app-misc/fzf keybindings to app-shells/bash</flag>
+		<flag name="zsh-keybindings">Add default app-misc/fzf keybindings to app-shells/zsh</flag>
+		<flag name="fish-keybindings">Add default app-misc/fzf keybindings to app-shells/fish</flag>
+		<flag name="tmux">Integration between app-misc/fzf and app-misc/tmux: add script fzf-tmux (starts fzf in a tmux pane)</flag>
+		<flag name="vim">Integration between app-misc/fzf and app-editors/vim (or derivatives): add the vim plugin fzf</flag>
+  </use>
 </pkgmetadata>

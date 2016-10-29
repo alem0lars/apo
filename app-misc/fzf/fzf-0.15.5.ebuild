@@ -12,7 +12,14 @@ SRC_URI="https://github.com/junegunn/fzf/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+go bash-completion zsh-completion fish-completion tmux vim doc"
+IUSE="
+	bash-completion bash-keybindings
+	zsh-completion zsh-keybindings
+	fish-keybindings
+	tmux
+	vim
+	doc
+"
 
 DEPEND="
 	dev-lang/go
@@ -32,6 +39,9 @@ src_install() {
 	if use bash-completion; then
 		insinto /etc/bash_completion.d/
 		newins shell/completion.bash fzf
+	fi
+
+	if use bash-keybindings; then
 		insinto /etc/profile.d/
 		newins shell/key-bindings.bash fzf.bash
 	fi
@@ -39,11 +49,14 @@ src_install() {
 	if use zsh-completion; then
 		insinto /usr/share/zsh/site-functions/
 		newins shell/completion.zsh _fzf
+	fi
+
+	if use zsh-keybindings; then
 		insinto /usr/share/zsh/site-contrib/
 		newins shell/key-bindings.zsh fzf.zsh
 	fi
 
-	if use fish-completion; then
+	if use fish-keybindings; then
 		insinto /usr/share/fish/functions/
 		newins shell/key-bindings.fish fzf.fish
 	fi
