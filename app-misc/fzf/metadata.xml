@@ -11,5 +11,5 @@
 		<flag name="fish-keybindings">Add default app-misc/fzf keybindings to app-shells/fish</flag>
 		<flag name="tmux">Integration between app-misc/fzf and app-misc/tmux: add script fzf-tmux (starts fzf in a tmux pane)</flag>
 		<flag name="vim">Integration between app-misc/fzf and app-editors/vim (or derivatives): add the vim plugin fzf</flag>
-  </use>
+	</use>
 </pkgmetadata>
