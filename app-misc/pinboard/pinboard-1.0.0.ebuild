@@ -22,6 +22,8 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}/${MY_PN}"
+
 python_install_all() {
 	distutils-r1_python_install_all
 
