@@ -4,11 +4,6 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{3,4} )
-DISTUTILS_SINGLE_IMPL=yes
-
-inherit distutils-r1
-
 MY_PN="Buku"
 MY_P="${MY_PN}-${PV}"
 DESCRIPTION="Powerful command-line bookmark manager. Your mini web!"
@@ -25,9 +20,7 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"
 
-python_install_all() {
-	distutils-r1_python_install_all
-
+src_install() {
 	if use bash-completion; then
 		insinto /etc/bash_completion.d/
 		doins auto-completion/bash/buku-completion.bash
