@@ -10,6 +10,7 @@ DISTUTILS_SINGLE_IMPL=yes
 inherit distutils-r1
 
 MY_PN="${PN}.py"
+MY_P="${MY_PN}-${PV}"
 DESCRIPTION="A full-featured Python wrapper (and command-line utility) for the Pinboard API."
 HOMEPAGE="https://github.com/lionheart/${MY_PN}"
 SRC_URI="https://github.com/lionheart/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
@@ -22,7 +23,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${MY_PN}"
+S="${WORKDIR}/${MY_P}"
 
 python_install_all() {
 	distutils-r1_python_install_all
