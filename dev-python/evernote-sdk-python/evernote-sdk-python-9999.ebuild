@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	dev-libs/thrift[python]
+	dev-util/apache-thrift[python]
 	dev-python/oauth2
 "
 
