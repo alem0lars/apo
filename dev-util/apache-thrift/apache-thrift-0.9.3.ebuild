@@ -54,11 +54,12 @@ DEPEND="
     nodejs? ( net-libs/nodejs )
     ruby? ( dev-lang/ruby )
     go? ( dev-lang/go )
-    lua? ( dev-lang/lua:5.2 )
+    lua? ( dev-lang/lua )
     test? (
         boost? ( >=dev-libs/boost-1.53.0[static-libs] )
     )
     "
+    # was: lua? ( dev-lang/lua:5.2 )
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/thrift-${PV}"
