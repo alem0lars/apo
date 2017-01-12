@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>molari.alessandro@gmail.com</email>
+		<name>alem0lars</name>
+	</maintainer>
+	<use>
+		<flag name="bash-keybindings">Add default app-misc/geeknote keybindings to app-shells/bash</flag>
+	</use>
+</pkgmetadata>
