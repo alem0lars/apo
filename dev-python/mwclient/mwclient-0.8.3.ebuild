@@ -17,9 +17,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="dev-python/simplejson[${PYTHON_USEDEP}]"
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-	${RDEPEND}"
+RDEPEND="
+	dev-python/simplejson[${PYTHON_USEDEP}]
+	dev-python/requests-oauthlib
+"
+DEPEND="${RDEPEND}"
 
 DOCS=( README.rst {REFERENCE,CHANGELOG}.md )
 
