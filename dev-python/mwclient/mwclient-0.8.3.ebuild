@@ -21,7 +21,7 @@ RDEPEND="dev-python/simplejson[${PYTHON_USEDEP}]"
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 	${RDEPEND}"
 
-DOCS=( README.rst {REFERENCE,RELEASE-NOTES}.md )
+DOCS=( README.rst {REFERENCE,CHANGELOG}.md )
 
 python_prepare_all() {
 	sed -i \
