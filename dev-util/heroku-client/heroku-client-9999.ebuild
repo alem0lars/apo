@@ -8,7 +8,7 @@ EAPI=6
 inherit eutils
 
 MY_PN="heroku"
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/${MY_PN}"
 
 DESCRIPTION="Client tools for heroku"
 HOMEPAGE="http://heroku.com"
