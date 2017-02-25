@@ -1,7 +1,5 @@
-diff -ur voltron/setup.py voltron/setup.py
-
---- setup.py    2017-02-25 13:54:44.258635555 +0100
-+++ setup.py    2017-02-25 14:37:04.068313368 +0100
+--- a/setup.py    2017-02-25 13:54:44.258635555 +0100
++++ b/setup.py    2017-02-25 14:37:04.068313368 +0100
 @@ -7,53 +7,6 @@
  from setuptools import setup, find_packages
 

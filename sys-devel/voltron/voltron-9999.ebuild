@@ -3,6 +3,7 @@
 # $Id$
 
 EAPI=6
+
 PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} pypy2_0 )
 
 inherit distutils-r1 git-r3
@@ -23,14 +24,14 @@ DEPEND="
 	dev-python/pygments
 	dev-python/requests
 	dev-python/six
-	>=dev-python/scruffy-0.3.6
 	dev-python/requests-unixsocket
 	dev-python/blessed
 	dev-python/pysigset
+	>=dev-python/scruffy-0.3.6
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}"/skip-gdb-checks.patch )
+PATCHES=( "${FILESDIR}"/setup.patch )
 
 python_install_all() {
 	local DOCS=( README.md )
