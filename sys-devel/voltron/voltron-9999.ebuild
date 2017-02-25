@@ -30,6 +30,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}"/skip-gdb-checks.patch )
+
 python_install_all() {
 	local DOCS=( README.md )
 	distutils-r1_python_install_all
