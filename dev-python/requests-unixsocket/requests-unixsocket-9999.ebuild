@@ -6,9 +6,9 @@ EAPI=6
 
 PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} pypy2_0 )
 
-inherit distutils-r1
+inherit distutils-r1 git-r3
 
-SRC_URI="https://github.com/msabramo/requests-unixsocket/archive/${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="git://github.com/msabramo/${PN}.git"
 
 DESCRIPTION="Use requests to talk HTTP via a UNIX domain socket"
 HOMEPAGE="https://github.com/msabramo/requests-unixsocket"

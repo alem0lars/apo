@@ -24,8 +24,8 @@ DEPEND="
 	dev-python/requests
 	dev-python/six
 	>=dev-python/scruffy-0.3.6
-    dev-python/requests-unixsocket
-    dev-python/blessed
+	dev-python/requests-unixsocket
+	dev-python/blessed
 	dev-python/pysigset
 "
 RDEPEND="${DEPEND}"
