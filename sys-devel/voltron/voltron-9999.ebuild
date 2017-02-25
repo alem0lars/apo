@@ -25,10 +25,9 @@ DEPEND="
 	dev-python/six
 	>=dev-python/scruffy-0.3.6
     dev-python/requests-unixsocket
+    dev-python/blessed
+	dev-python/pysigset
 "
-    'blessed',
-    'pysigset',
-		dev-python/rl
 RDEPEND="${DEPEND}"
 
 python_install_all() {
