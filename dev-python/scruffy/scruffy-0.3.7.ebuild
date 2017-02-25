@@ -23,8 +23,3 @@ DEPEND="
 	dev-python/pyyaml
 "
 RDEPEND="${DEPEND}"
-
-python_install_all() {
-	local DOCS=( README.md )
-	distutils-r1_python_install_all
-}
