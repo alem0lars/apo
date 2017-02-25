@@ -3,11 +3,12 @@
 # $Id$
 
 EAPI=6
+
 PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} pypy2_0 )
 
-inherit distutils-r1 git-r3
+inherit distutils-r1
 
-EGIT_REPO_URI="git://github.com/snarez/${PN}.git"
+SRC_URI="https://github.com/Nitrokey/nitrokey-app/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 DESCRIPTION="A half-arsed UI module for GDB & LLDB"
 HOMEPAGE="https://github.com/snare/voltron"
@@ -18,17 +19,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-	flask
-	flask-restful
-	pygments
-	requests
-	six
-	>=dev-python/scruffy-0.3.6
+	dev-python/six
+	dev-python/pyyaml
 "
-    'blessed',
-    'requests_unixsocket',
-    'pysigset',
-		dev-python/rl
 RDEPEND="${DEPEND}"
 
 python_install_all() {
