@@ -18,15 +18,15 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-	flask
-	flask-restful
-	pygments
-	requests
-	six
+	dev-python/flask
+	dev-python/flask-restful
+	dev-python/pygments
+	dev-python/requests
+	dev-python/six
 	>=dev-python/scruffy-0.3.6
+    dev-python/requests-unixsocket
 "
     'blessed',
-    'requests_unixsocket',
     'pysigset',
 		dev-python/rl
 RDEPEND="${DEPEND}"

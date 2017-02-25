@@ -4,23 +4,22 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} pypy2_0 )
-
+PYTHON_COMPAT=( python2_7 python3_4 )
 inherit distutils-r1
 
-SRC_URI="https://github.com/snare/scruffy/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/msabramo/requests-unixsocket/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 DESCRIPTION="A half-arsed UI module for GDB & LLDB"
-HOMEPAGE="https://github.com/snare/scruffy"
+HOMEPAGE="https://github.com/msabramo/requests-unixsocket"
 
-LICENSE="MIT"
+LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-	dev-python/six
-	dev-python/pyyaml
+	>=dev-python/requests-1.1
+	>=dev-python/urllib3-1.8
 "
 RDEPEND="${DEPEND}"
 
