@@ -27,12 +27,12 @@ SLOT="0"
 IUSE="+cryptopp +sqlite +zlib +curl freeimage readline examples threads qt5 nautilus"
 
 DEPEND="
-	!qt5? ( 
+	!qt5? (
 		dev-qt/qtcore:4
 		dev-qt/qtgui:4
 		dev-qt/qtdbus:4
 		)
-	qt5? ( 
+	qt5? (
 		dev-qt/qtcore:5
 		dev-qt/linguist-tools
 		dev-qt/qtwidgets:5
@@ -57,18 +57,18 @@ RDEPEND="${DEPEND}
 		readline? ( sys-libs/readline:0 )
 		nautilus? (
 			>=gnome-base/nautilus-3.12.0
-			!!gnome-extra/nautilus-megasync 
+			!!gnome-extra/nautilus-megasync
 			)
 		"
 
-if [[ ${PV} != *9999* ]];then
-	src_prepare(){
-		cp -r ../sdk-${SDK_COMMIT}/* src/MEGASync/mega
-		cd src/MEGASync/mega
-		eapply_user
-		eautoreconf
-	}
-fi
+#if [[ ${PV} != *9999* ]];then
+src_prepare(){
+	cp -r ../sdk-${SDK_COMMIT}/* src/MEGASync/mega
+	cd src/MEGASync/mega
+	eapply_user
+	eautoreconf
+}
+#fi
 
 src_configure(){
 	cd "${S}"/src/MEGASync/mega
@@ -86,7 +86,7 @@ src_configure(){
 		"--with-sodium" \
 		$(use_with freeimage) \
 		$(use_with readline) \
-		$(use_enable examples)	
+		$(use_enable examples)
 	cd ../..
 	local myeqmakeargs=(
 		MEGA.pro
