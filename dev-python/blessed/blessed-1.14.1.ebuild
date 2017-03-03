@@ -17,7 +17,10 @@ LICENSE="MIT"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="test"
 
-DEPEND="test? ( dev-python/nose[${PYTHON_USEDEP}] )"
+DEPEND="
+	dev-python/wcwidth
+	test? ( dev-python/nose[${PYTHON_USEDEP}] )
+"
 
 python_test() {
 	# The tests need an interactive terminal
