@@ -42,6 +42,7 @@ COMMON_DEPEND='
 
 DEPEND="
 	virtual/pkgconfig
+	dev-pyhon/wheel
 	${COMMON_DEPEND}
 "
 
