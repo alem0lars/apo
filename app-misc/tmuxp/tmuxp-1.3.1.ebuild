@@ -20,11 +20,11 @@ IUSE="test zsh-completion" # doc examples
 
 DEPEND="
 	>=app-misc/tmux-1.8
-	>=dev-python/libtmux-0.7.3[${PYTHON_USEDEP}]
-	>=dev-python/kaptan-0.5.7[${PYTHON_USEDEP}]
-	=dev-python/click-6.6[${PYTHON_USEDEP}]
+	=dev-python/libtmux-0.7.3[${PYTHON_USEDEP}]
+	=dev-python/kaptan-0.5.7[${PYTHON_USEDEP}]
+	=dev-python/click-6.7[${PYTHON_USEDEP}]
 	dev-python/argcomplete[${PYTHON_USEDEP}]
-	>=dev-python/colorama-0.3.9[${PYTHON_USEDEP}]
+	=dev-python/colorama-0.3.9[${PYTHON_USEDEP}]
 	test? ( dev-python/coverage[${PYTHON_USEDEP}] )
 "
 #	doc? (
