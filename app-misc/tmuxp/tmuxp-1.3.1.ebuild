@@ -58,13 +58,5 @@ python_install_all() {
 #		insinto /usr/share/doc/${PF}/examples
 #		doins -r examples/*
 #	fi
-
-	newbashcomp pkg/${PN}.bash "${PN}"
-
-	if use zsh-completion; then
-		insinto /usr/share/zsh/site-functions
-		newins pkg/${PN}.zsh _${PN}
-	fi
-
 	distutils-r1_python_install_all
 }
