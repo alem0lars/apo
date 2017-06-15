@@ -16,7 +16,7 @@ SRC_URI="https://github.com/tony/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test zsh-completion" # doc examples
+IUSE="test" # doc examples
 
 DEPEND="
 	>=app-misc/tmux-1.8
