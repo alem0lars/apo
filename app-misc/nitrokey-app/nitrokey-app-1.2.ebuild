@@ -8,7 +8,7 @@ inherit cmake-utils
 
 DESCRIPTION="Nitrokey management application"
 HOMEPAGE="https://www.nitrokey.com"
-SRC_URI="https://github.com/Nitrokey/nitrokey-app/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/Nitrokey/nitrokey-app/archive/v${PV}-beta.3.tar.gz -> ${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"
