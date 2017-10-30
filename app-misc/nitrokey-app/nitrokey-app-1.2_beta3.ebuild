@@ -6,9 +6,12 @@ EAPI=6
 
 inherit cmake-utils
 
+MY_PV="${PV/_beta/-beta.}"
+MY_P="${PN}-${MY_PV}"
+S="${WORKDIR}/${MY_P}"
 DESCRIPTION="Nitrokey management application"
 HOMEPAGE="https://www.nitrokey.com"
-SRC_URI="https://github.com/Nitrokey/nitrokey-app/archive/v${PV}-beta.3.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/Nitrokey/nitrokey-app/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -29,7 +32,7 @@ src_prepare() {
 		CMakeLists.txt
 	sed -i \
 		's|etc/bash_completion.d|usr/share/bash-completion/completions|g' \
-	CMakeLists.txt
+		CMakeLists.txt
 
 	eapply_user
 }
