@@ -27,6 +27,11 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	echo "-----"
+	echo $MY_PV
+	echo $MY_P
+	echo $S
+	echo "-----"
 	sed -i \
 		's|usr/lib/udev/rules.d|etc/udev/rules.d|g' \
 		CMakeLists.txt
