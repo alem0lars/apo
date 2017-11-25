@@ -1,26 +1,27 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
+# $Header: $
 
-EAPI=5
+EAPI=4
 
-inherit autotools eutils gnome2-utils toolchain-funcs
+inherit git-2 eutils gnome2-utils
 
 DESCRIPTION="GTK-based collaborative editor"
 HOMEPAGE="http://gobby.0x539.de/"
-SRC_URI="https://github.com/gobby/gobby/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-LICENSE="ISC"
+SRC_URI=""
+EGIT_REPO_URI="git://git.0x539.de/git/gobby.git"
+
+LICENSE="GPL-2"
 SLOT="0.5"
 KEYWORDS="~amd64 ~x86"
-IUSE="zeroconf doc nls"
+IUSE="avahi doc nls"
 
 RDEPEND="dev-cpp/glibmm:2
-	dev-cpp/gtkmm:3.0
+	dev-cpp/gtkmm:2.4
 	dev-libs/libsigc++:2
-	>=net-libs/libinfinity-0.6.1[gtk,zeroconf?]
-	x11-libs/gtk+:3
+	>=net-libs/libinfinity-9999[gtk,avahi?]
 	dev-cpp/libxmlpp:2.6
-	x11-libs/gtksourceview:3.0"
+	x11-libs/gtksourceview:2.0"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? (
@@ -30,11 +31,11 @@ DEPEND="${RDEPEND}
 	nls? ( >=sys-devel/gettext-0.12.1 )"
 
 src_prepare() {
-	eautoreconf
+	sh autogen.sh
 }
+
 src_configure() {
-	econf $(use_enable nls) \
-		--with-gtk3
+	econf $(use_enable nls) --enable-maintainer-mode
 }
 
 src_install() {
